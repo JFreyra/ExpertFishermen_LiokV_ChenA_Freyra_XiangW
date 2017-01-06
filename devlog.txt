@@ -1,0 +1,2 @@
+JuliusF -- 2017-1-6 0:33
+Added design doc, updated README, first commit woo!
