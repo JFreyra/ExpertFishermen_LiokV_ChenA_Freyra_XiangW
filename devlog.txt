@@ -5,7 +5,10 @@ WilliamX -- 2017-1-9 13:42
 Added fundamental Flask dirs/file/routes
 
 AlanC -- 2017-1-9 14:02
-Add login.html/register.html/home.html
+Added login.html/register.html/home.html
 
 VincentL -- 2017-1-9 23:09
 keywordSearch() function in spotify.py can now search for an artist's top tracks given artist name
+
+AlanC -- 2017-1-10 14:03
+Added basic countdown clock/Foundation
