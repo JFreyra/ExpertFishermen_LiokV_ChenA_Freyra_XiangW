@@ -18,18 +18,22 @@ def login():
         return render_template("login.html")
     else: #assert method is POST
         '''
-        DB function needed: verifyLogin
+        DB function needed: verifyLogin(username, password)
         * return 1 if username or password blank
-        * return 1 if username doesn't exist
-        * return 2 if username exists, put password incorrect
-        * 
+        * return 2 if username doesn't exist
+        * return 3 if username exists, put password incorrect
+        * return 0 otherwise (login successful)
         '''
         if verifyLogin == 0:
-           pass
-        #user_id = 
-        session["user_id"] = user_id
-        # do verification stuff
-        pass
+            '''
+            DB function needed: getUserID()
+            * given username, get user ID
+            '''
+            #user_id = getUserID()
+            #session["user_id"] = user_id
+            return redirect('/')
+        else:
+            return "dere wuz a eror"
 
     
 @app.route('/register', methods=['GET','POST'])
