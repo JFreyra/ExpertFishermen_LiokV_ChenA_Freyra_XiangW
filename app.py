@@ -25,8 +25,8 @@ def login():
         * 
         '''
         if verifyLogin == 0:
-            e
-        user_id = 
+           pass
+        #user_id = 
         session["user_id"] = user_id
         # do verification stuff
         pass
