@@ -1,9 +1,66 @@
 <!DOCTYPE>
 <html>
 
+<head>
 <title>homepage</title>
+<link type="text/css" rel="stylesheet" src="static/css/foundation.min.css">
+<link type="text/css" rel="stylesheet" src="static/css/app.css">
+</head>
 
 <body>
+<div class="top-bar">
+  <div class="top-bar-left">
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li class="menu-text">Site Title</li>
+      <li class="has-submenu">
+        <a href="#0">One</a>
+        <ul class="submenu menu vertical" data-submenu>
+          <li><a href="#0">One</a></li>
+          <li><a href="#0">Two</a></li>
+          <li><a href="#0">Three</a></li>
+        </ul>
+      </li>
+      <li><a href="#0">Two</a></li>
+      <li><a href="#0">Three</a></li>
+    </ul>
+  </div>
+  <div class="top-bar-right">
+    <ul class="menu">
+      <li><input type="search" placeholder="Search"></li>
+      <li><button type="button" class="button">Search</button></li>
+    </ul>
+  </div>
+</div>
 <h1>Potato Productivity</h1>
+<p id="time">here we go!!!</p>
+
+<script>
+function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            timer = duration;
+        }
+    }, 1000);
+}
+
+window.onload = function () {
+    var fifteenMinutes = 60 * 0.5,
+    display = document.querySelector('#time');
+    startTimer(fifteenMinutes, display);
+};
+</script>
+
 </body>
+
+
+
 </html>
