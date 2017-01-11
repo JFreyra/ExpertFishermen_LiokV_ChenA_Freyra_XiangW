@@ -17,23 +17,28 @@ def login():
     if request.method == 'GET':
         return render_template("login.html")
     else: #assert method is POST
+        username = request.form.get("username")
+        password = request.form.get("password")
         '''
-        DB function needed: verifyLogin(username, password)
-        * return 1 if username or password blank
-        * return 2 if username doesn't exist
-        * return 3 if username exists, put password incorrect
-        * return 0 otherwise (login successful)
+        DB function needed: isValidLogin(username, password)
+        * return False if login unsuccessful, if:
+            * username doesn't exist
+            * username does exist, but password wrong
+        * return True otherwise
         '''
-        if verifyLogin == 0:
+        if isValidLogin(username, password):
             '''
-            DB function needed: getUserID()
+            DB function needed: getUserID(username)
             * given username, get user ID
             '''
-            #user_id = getUserID()
+            #user_id = getUserID(username)
             #session["user_id"] = user_id
+            flash('Login successful!', 'success')
             return redirect('/')
+        
         else:
-            return "dere wuz a eror"
+            flash("Login unsuccessful! Please create an account if you haven't already!", 'error')
+            return render_template("login.html")
 
     
 @app.route('/register', methods=['GET','POST'])
@@ -41,19 +46,44 @@ def register():
     if request.method == 'GET':
         return render_template("register.html")
     else: #assert method is POST
-        # do verification stuff
-        pass
+        username = request.form.get("username")
+        password = request.form.get("password")
+        name_first = request.form.get("firstname")
+        name_last = request.form.get("lastname")
+        '''
+        DB function needed: isValidRegister(username, password, password_confirm)
+        * return False if registration unsuccessful, if:
+            * username already exists
+        * return True otherwise
+        '''
+        if isValidRegister(username, password):
+            '''
+            DB function needed: addUser(username, password, firstname, lastname)
+            * return nothing lmao
+            '''
+            #addUser(username, password, firstname, lastname)
+            
+            #user_id = getUserID(username)
+            #session["user_id"] = user_id
+            flash('Registration successful!', 'success')
+            return redirect('/')
+        
+        else:
+            flash('Registration unsuccessful! Username probably already exists!', 'error')
+            return render_template("register.html")
 
 
 @app.route('/clock')
-def cock():
-    return kek
-                
+def clock():
+    return "kek"
+
 
 @app.route('/logout')
 def logout():
     if "user_id" in session:
         session.pop("user_id")
+    else:
+        flash('Not logged in yet!', 'error')
     return redirect(flaskUtils.redirect_url())
 
 
