@@ -11,7 +11,8 @@ def keywordSearch(artist,track):
     t = track.replace(" ","+")
     
     if not (a == "" and t == ""):
-            
+
+        #searching for only an artist returns the artist's top tracks    
         if t == "":
             url = "https://api.spotify.com/v1/search?q=" + a + "&type=artist"
             request = urllib2.urlopen(url)
@@ -25,7 +26,8 @@ def keywordSearch(artist,track):
             for t in d["tracks"]:
                 tempList = [ t["name"] , t["external_urls"]["spotify"] ]
                 retList.append( tempList )
-    
+
+        #searching for only a track returns tracks with the same name but by different artists
         elif a == "":
             url = "https://api.spotify.com/v1/search?q=" + t + "&type=track"
             request = urllib2.urlopen(url)
@@ -38,10 +40,30 @@ def keywordSearch(artist,track):
                     collabs += a["name"] + ","
                 collabs = collabs[:-1]
                 retList.append( [collabs,t["external_urls"]["spotify"]] )
-                                
+
+        #searching for both an artist and a track returns the top three versions of that song
         else:
-            retList = [] #placeholder
-        
+            url = "https://api.spotify.com/v1/search?q=" + t + "&type=track"
+            request = urllib2.urlopen(url)
+            result = request.read()
+            d = json.loads(result)
+            d = d["tracks"]
+            counter = 0
+            for t in d["items"]:
+                for a in t["artists"]:
+                    if a["name"] == artist:
+                        retList.append( t["external_urls"]["spotify"] )
+                        counter += 1
+                        if counter == 3:
+                            return retList
+            
     return retList
 
+"""
+test cases
+pprint( keywordSearch("Maroon 5","Sunday Morning") )
+pprint( "\n" )
+pprint( keywordSearch("Maroon 5","") )
+pprint( "\n" )
 pprint( keywordSearch("","Sunday Morning") )
+"""
