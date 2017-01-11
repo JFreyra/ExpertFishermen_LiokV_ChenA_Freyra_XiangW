@@ -21,3 +21,6 @@ keywordSearch() function in spotify.py can be given track and artist as paramete
 
 WilliamX -- 2017-1-11 02:01
 finished login, register, and logout routes in app.py
+
+AlanC -- 2017-1-11 14:02
+Beautified register.html
