@@ -12,3 +12,6 @@ keywordSearch() function in spotify.py can now search for an artist's top tracks
 
 AlanC -- 2017-1-10 14:03
 Added basic countdown clock/Foundation
+
+VincentL -- 2017-1-10 20:32
+keywordSearch() function in spotify.py can search for tracks with the same name but made by different artists
