@@ -23,18 +23,25 @@ def keywordSearch(artist,track):
             result = request.read()
             d = json.loads(result)
             for t in d["tracks"]:
-                tempList = [ t["name"] , t["id"] ]
+                tempList = [ t["name"] , t["external_urls"]["spotify"] ]
                 retList.append( tempList )
     
         elif a == "":
-            url = "https://api.spotify.com/v1/"
+            url = "https://api.spotify.com/v1/search?q=" + t + "&type=track"
             request = urllib2.urlopen(url)
             result = request.read()
             d = json.loads(result)
-    
+            d = d["tracks"]
+            for t in d["items"]:
+                collabs = ""
+                for a in t["artists"]:
+                    collabs += a["name"] + ","
+                collabs = collabs[:-1]
+                retList.append( [collabs,t["external_urls"]["spotify"]] )
+                                
         else:
             retList = [] #placeholder
         
     return retList
 
-pprint( keywordSearch("Sam Smith","") )
+pprint( keywordSearch("","Sunday Morning") )
