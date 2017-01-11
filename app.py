@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, request, redirect, session
+from flask import Flask, render_template, url_for, request, redirect, session, flash
 from utils import flaskUtils
 
 def redirect_url():
