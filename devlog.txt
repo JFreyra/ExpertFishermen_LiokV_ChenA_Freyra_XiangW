@@ -15,3 +15,6 @@ Added basic countdown clock/Foundation
 
 VincentL -- 2017-1-10 20:32
 keywordSearch() function in spotify.py can search for tracks with the same name but made by different artists
+
+VincentL -- 2017-1-11 13:57
+keywordSearch() function in spotify.py can be given track and artist as parameter
