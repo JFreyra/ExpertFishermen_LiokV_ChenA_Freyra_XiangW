@@ -24,3 +24,6 @@ finished login, register, and logout routes in app.py
 
 AlanC -- 2017-1-11 14:02
 Beautified register.html
+
+AlanC -- 2017-1-17 13:53
+Began integrating Spotify widget into home.html, started drawing out structure of to-do list widget.
