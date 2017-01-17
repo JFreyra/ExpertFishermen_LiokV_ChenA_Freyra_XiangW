@@ -36,7 +36,7 @@ def keywordSearch(artist,track):
             d = d["tracks"]
             for t in d["items"]:
                 collabs = ""
-                for a in t["artists"]:
+cv                for a in t["artists"]:
                     collabs += a["name"] + ","
                 collabs = collabs[:-1]
                 retList.append( [collabs,t["external_urls"]["spotify"]] )
@@ -56,8 +56,9 @@ def keywordSearch(artist,track):
                         counter += 1
                         if counter == 3:
                             return retList
-            
-    return retList
+
+                                    
+     return retList
 
 '''
 test cases

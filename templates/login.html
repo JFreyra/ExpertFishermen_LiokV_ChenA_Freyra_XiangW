@@ -5,12 +5,43 @@
 
   <body>
     <h1>Login</h1>
-    <form action="/auth" method="POST">
-      Username:
-      <input type="text" name="username" maxlength="32">
-      Password:
-      <input type="password" name="password">
-      <input type="submit" value="login">
+    <form data-abide novalidate>
+      <div data-abide-error class="alert callout" style="display: none;">
+	<p><i class="fi-alert"></i> There are some errors in your form.</p>
+      </div>
+      <div class="row">
+
+	<!-- USERNAME FIELD !-->
+	<div class="small-12 columns">
+	  <label>Username:
+            <input type="text" placeholder="Example: donger24" aria-describedby="exampleHelpText" required pattern="number">
+            <span class="form-error">
+              How you finna log in without a username?
+            </span>
+	  </label>
+	  <p class="help-text" id="exampleHelpText">Type your username!!</p>
+	</div>
+	<!-- END USERNAME FIELD !-->
+
+	<!-- PASSWORD FIELD !-->
+	<div class="small-12 columns">
+	  <label>Password:
+            <input type="password" id="password" placeholder="Example: poopernachos" aria-describedby="exampleHelpText" required >
+            <span class="form-error">
+              I'm required!
+            </span>
+	  </label>
+	  <p class="help-text" id="exampleHelpText">Enter a password please!!</p>
+	</div>
+	<!-- END PASSWORD FIELD !-->
+
+	<!-- SUBMIT BUTTONS !-->
+	<div class="row">
+	  <fieldset class="large-6 columns">
+	    <button class="button" type="submit" value="Submit">Submit</button>
+	  </fieldset>
+	</div>
+	<!-- END SUBMIT BUTTONS !-->
     </form>
     <br>
     <a href="/register">Need to make an account?</a>
