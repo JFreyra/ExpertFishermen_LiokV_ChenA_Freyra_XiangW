@@ -59,11 +59,16 @@ def keywordSearch(artist,track):
             
     return retList
 
-"""
+'''
 test cases
 pprint( keywordSearch("Maroon 5","Sunday Morning") )
-pprint( "\n" )
+this returns ["spotify url1","spotify url2", ...]
+print()
+print()
 pprint( keywordSearch("Maroon 5","") )
-pprint( "\n" )
+this returns [["track1","spotify url1"], ["track2","spotify url2"], ...]
+print()
+print()
 pprint( keywordSearch("","Sunday Morning") )
-"""
+this returns [["artist1,artist2,...","spotify url1"], ["artist1,artist2,...","spotify url2"], ...]
+'''
