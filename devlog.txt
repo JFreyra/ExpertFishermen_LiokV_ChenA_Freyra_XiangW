@@ -30,3 +30,6 @@ Began integrating Spotify widget into home.html, started drawing out structure o
 
 VincentL -- 2017-1-17 23:09
 Started working on authentication and adding user in auth.py
+
+AlanC -- 2017-1-18 14:02
+Began to-do list widget
