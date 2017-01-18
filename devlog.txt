@@ -27,3 +27,6 @@ Beautified register.html
 
 AlanC -- 2017-1-17 13:53
 Began integrating Spotify widget into home.html, started drawing out structure of to-do list widget.
+
+VincentL -- 2017-1-17 23:09
+Started working on authentication and adding user in auth.py
