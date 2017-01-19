@@ -73,9 +73,12 @@ def register():
             return render_template("register.html")
 
 
-@app.route('/clock')
-def clock():
-    return "kek"
+@app.route('/todo')
+#Frontend sends AJAX request (POST) to /todo every time todo list changed
+def todo( methods=['POST'] ):
+    return request.args.get('')
+       
+    return ""
 
 
 @app.route('/logout')
