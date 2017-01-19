@@ -24,30 +24,35 @@ def addUser(user, full_name, email, password):
         if (email in data):
             db.close()
             return "ERROR: email already in use"
-    #how to increment id???
-    q="INSERT INTO user VALUES (0, \""+user+'\",\"'+email+'\",\"'+myHashObj.hexdigest()+'\")'
-    print q
+
+    q="SELECT id FROM user"
+    c.execute(q)
+    userInfo=c.fetchall()
+    print userInfo
+    if len(userInfo) == 0:
+        userID = 0
+    else:
+        userID = userInfo[-1][0] + 1
+    q="INSERT INTO user VALUES ("+str(userID)+", \""+user+'\",\"'+full_name+'\",\"'+email+'\",\"'+myHashObj.hexdigest()+'\")'
     c.execute(q)
     db.commit()
     db.close()
     return "registration successful, enter user and pass to login"
 
 def userLogin(user, password):
-    db=sqlite3.connect('data/tables.db')
+    db=sqlite3.connect('../data/potato.db')
     c=db.cursor()
     myHashObj=hashlib.sha1()
     myHashObj.update(password)
-    q='SELECT username FROM users'
-    print "hi"
+    q='SELECT username FROM user'
     c.execute(q)
     data=c.fetchall()
     for stuff in data:
         if(user in stuff):
-            print "bye"
-            q='SELECT password FROM users WHERE username = "'+user+'";'
+            q='SELECT password FROM user WHERE username = "'+user+'";'
             c.execute(q)
             password=c.fetchall()
-            q='SELECT userID From users WHERE username = "'+user+'";'
+            q='SELECT username From user WHERE username = "'+user+'";'
             c.execute(q)
             stuff=c.fetchall()
             db.close()
@@ -58,3 +63,5 @@ def userLogin(user, password):
 
 def special(user):
     return any((ord(char)<48 or (ord(char)>57 and ord(char)<65) or (ord(char)>90 and ord(char)<97) or ord(char)>123) for char in user)
+
+print userLogin("hype","blahblahblah")
