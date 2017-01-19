@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+  {% block head %}
+  <head>
+    <title>
+      {% block title %}
+      CHANGE THE TITLE
+      {% endblock title %}
+    </title>
+    <link type="text/css" rel="stylesheet" href="/static/css/foundation.css">
+    <link type="text/css" rel="stylesheet" href="/static/css/app.css">
+    <link href="//rubaxa.github.io/Ply/ply.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet" type="text/css"/>
+  </head>
+  {% endblock head %}
+
+  <body>
+    <div class="top-bar">
+      <div class="top-bar-left">
+	<ul class="dropdown menu" data-dropdown-menu>
+	  <li class="menu-text">Portarto</li>
+	  <li><a href="/">Home</a></li>
+	  {% if "user_id" not in session %}
+	  <li><a href="/login">Login</a></li>
+	  {% endif %}
+	</ul>
+      </div>
+    </div>
+    {% block content %}
+
+
+    {% endblock content %}
+  </body>
+
+</html>

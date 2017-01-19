@@ -1,10 +1,11 @@
-<!DOCTYPE html>
-<html>
+{% extends "template.html" %}
 
-  <title>login</title>
+{% block title %}
+Login
+{% endblock title %}
 
-  <body>
-    <h1>Login</h1>
+{% block content %}
+
     <form data-abide novalidate>
       <div data-abide-error class="alert callout" style="display: none;">
 	<p><i class="fi-alert"></i> There are some errors in your form.</p>
@@ -45,5 +46,5 @@
     </form>
     <br>
     <a href="/register">Need to make an account?</a>
-  </body>
-</html>
+
+    {% endblock content %}
