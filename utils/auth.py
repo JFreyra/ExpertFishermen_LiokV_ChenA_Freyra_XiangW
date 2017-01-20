@@ -40,7 +40,7 @@ def addUser(user, full_name, email, password):
     return "registration successful, enter user and pass to login"
 
 def userLogin(user, password):
-    db=sqlite3.connect('../data/potato.db')
+    db=sqlite3.connect('data/potato.db')
     c=db.cursor()
     myHashObj=hashlib.sha1()
     myHashObj.update(password)
