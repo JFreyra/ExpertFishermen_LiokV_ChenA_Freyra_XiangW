@@ -29,5 +29,6 @@ def deleteTimer( userID, isLooped, workSec, restSec, longRestSec ):
 
 '''
 print displayTimers( 1 )
-this returns ( 0, 1234, 12, 123 )
+this returns ( isLooped, workSecs, restSecs, longRestSecs )
+for example ( 0, 1234, 12, 123 )
 '''

@@ -39,3 +39,6 @@ Finished auth.py
 
 VincentL -- 2017-1-22 15:35
 timer.py has three functions: storeTimer(), displayTimers(), deleteTimer(), all functions completed
+
+VincentL -- 2017-1-22 18:05
+addTask() in todo.py completed
