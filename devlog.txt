@@ -36,3 +36,6 @@ Began to-do list widget
 
 VincentL -- 2017-1-19 13:30
 Finished auth.py
+
+VincentL -- 2017-1-22 15:35
+timer.py has three functions: storeTimer(), displayTimers(), deleteTimer(), all functions completed
