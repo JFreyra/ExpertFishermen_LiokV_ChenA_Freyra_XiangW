@@ -42,3 +42,6 @@ timer.py has three functions: storeTimer(), displayTimers(), deleteTimer(), all 
 
 VincentL -- 2017-1-22 18:05
 addTask() in todo.py completed
+
+JuliusF -- 2017-1-23 14:-5
+added testing files, will remove later
