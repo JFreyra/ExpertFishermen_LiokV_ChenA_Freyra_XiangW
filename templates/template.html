@@ -8,24 +8,16 @@
       CHANGE THE TITLE
       {% endblock title %}
     </title>
-    <link type="text/css" rel="stylesheet" href="/static/css/foundation.css">
-    <link type="text/css" rel="stylesheet" href="/static/css/app.css">
+
     <link href="/static/css/ply.css" rel="stylesheet" type="text/css"/>
     <link href="//fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet" type="text/css"/>
+    <link href="/static/css/app.css" rel="stylesheet" type="text/css"/>
+    <link type="text/css" rel="stylesheet" href="/static/css/foundation.css">
   </head>
   {% endblock head %}
 
   <body>
-    <script>
-      // Editable list
-      var editableList = Sortable.create(editable, {
-      filter: '.js-remove',
-      onFilter: function (evt) {
-      var el = editableList.closest(evt.item); // get dragged item
-      el && el.parentNode.removeChild(el);
-      }
-      });
-    </script>
+    <!-- NAV BAR AT THE TOP !-->
     <div class="top-bar">
       <div class="top-bar-left">
 	<ul class="dropdown menu" data-dropdown-menu>
@@ -37,12 +29,17 @@
 	</ul>
       </div>
     </div>
+    <!-- END NAV BAR !-->
+    
     {% block content %}
 
     
     {% endblock content %}
+
     <script src="/static/js/Sortable.js"></script>
+    <script src="/static/js/Ply.min.js"></script>
     <script src="/static/js/app.js"></script>
+
   </body>
 
 </html>

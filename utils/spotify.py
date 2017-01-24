@@ -36,10 +36,10 @@ def keywordSearch(artist,track):
             d = d["tracks"]
             for t in d["items"]:
                 collabs = ""
-cv                for a in t["artists"]:
+                for a in t["artists"]:
                     collabs += a["name"] + ","
-                collabs = collabs[:-1]
-                retList.append( [collabs,t["external_urls"]["spotify"]] )
+                    collabs = collabs[:-1]
+                    retList.append( [collabs,t["external_urls"]["spotify"]] )
 
         #searching for both an artist and a track returns the top three versions of that song
         else:
@@ -58,18 +58,18 @@ cv                for a in t["artists"]:
                             return retList
 
                                     
-     return retList
+        return retList
 
-'''
-test cases
+
+#test cases
 pprint( keywordSearch("Maroon 5","Sunday Morning") )
-this returns ["spotify url1","spotify url2", ...]
+#this returns ["spotify url1","spotify url2", ...]
 print()
 print()
-pprint( keywordSearch("Maroon 5","") )
-this returns [["track1","spotify url1"], ["track2","spotify url2"], ...]
+#pprint( keywordSearch("Maroon 5","") )
+#this returns [["track1","spotify url1"], ["track2","spotify url2"], ...]
 print()
 print()
-pprint( keywordSearch("","Sunday Morning") )
-this returns [["artist1,artist2,...","spotify url1"], ["artist1,artist2,...","spotify url2"], ...]
-'''
+#pprint( keywordSearch("","Sunday Morning") )
+#this returns [["artist1,artist2,...","spotify url1"], ["artist1,artist2,...","spotify url2"], ...]
+
