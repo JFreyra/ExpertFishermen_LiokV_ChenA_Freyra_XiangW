@@ -35,7 +35,7 @@ addUser adds user into database
 '''
 def addUser(username, password):
     #connect to database
-    db = sqlite3.connect("data/potato.db")
+    db = sqlite3.connect("/data/potato.db")
     c = db.cursor()
 
     #hash password
@@ -57,7 +57,7 @@ True if the login is successful
 '''
 def userLogin(username, password):
     #connect to database
-    db = sqlite3.connect("data/potato.db")
+    db = sqlite3.connect("/data/potato.db")
     c = db.cursor()
 
     #hash password
@@ -68,19 +68,19 @@ def userLogin(username, password):
     q = "SELECT username FROM user"
     c.execute(q)
     user_list = c.fetchall()
+    
     for user in user_list:
         if (username in user):
-            q="SELECT password FROM user WHERE username = \"%s\""
+            q = "SELECT password FROM user WHERE username = \"%s\"" % (username)
             c.execute(q)
-            password=c.fetchall()
-            q='SELECT username From user WHERE username = "'+user+'";'
-            c.execute(q)
-            stuff=c.fetchall()
-            db.close()
-            if(myHashObj.hexdigest()==password[0][0]):
-                return ['True', str(stuff[0][0])]
+            passw = c.fetchall()[0][0]
+
+            if (myHashObj.hexdigest() == passw):
+                db.close()
+                return True
+            
     db.close()
-    return ['False', 'bad user/pass']
+    return False
 
 def special(user):
     return any((ord(char)<48 \

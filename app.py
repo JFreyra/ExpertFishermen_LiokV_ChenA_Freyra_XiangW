@@ -51,7 +51,7 @@ def register():
         name_first = request.form.get("firstname")
         name_last = request.form.get("lastname")
         '''
-        DB function needed: isValidRegister(username, password, password_confirm)
+        DB function needed: isValidRegister(username, password, confirm)
         * return False if registration unsuccessful, if:
             * username already exists
         * return True otherwise
