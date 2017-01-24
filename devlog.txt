@@ -45,3 +45,6 @@ addTask() in todo.py completed
 
 JuliusF -- 2017-1-23 14:-5
 added testing files, will remove later
+
+AlanC -- 2017-1-23 14:02
+Debug to-do list, create preliminary Spotify widget
