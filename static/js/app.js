@@ -1,4 +1,3 @@
-
 (function () {
     'use strict';
 
@@ -80,21 +79,6 @@
     });
 
 
-    // Multi groups
-    Sortable.create(byId('multi'), {
-	animation: 150,
-	draggable: '.tile',
-	handle: '.tile__name'
-    });
-
-    [].forEach.call(byId('multi').getElementsByClassName('tile__list'), function (el){
-	Sortable.create(el, {
-	    group: 'photo',
-	    animation: 150
-	});
-    });
-
-
     // Editable list
     var editableList = Sortable.create(byId('editable'), {
 	animation: 150,
@@ -103,7 +87,6 @@
 	    evt.item.parentNode.removeChild(evt.item);
 	}
     });
-
 
     byId('addUser').onclick = function () {
 	Ply.dialog('prompt', {
@@ -116,38 +99,13 @@
 	});
     };
 
-
-    // Advanced groups
-    [{
-	name: 'advanced',
-	pull: true,
-	put: true
-    },
-     {
-	 name: 'advanced',
-	 pull: 'clone',
-	 put: false
-     }, {
-	 name: 'advanced',
-	 pull: false,
-	 put: true
-     }].forEach(function (groupOpts, i) {
-	 Sortable.create(byId('advanced-' + (i + 1)), {
-	     sort: (i != 1),
-	     group: groupOpts,
-	     animation: 150
-	 });
-     });
-
-
     // 'handle' option
     Sortable.create(byId('handle-1'), {
 	handle: '.drag-handle',
 	animation: 150
     });
 
-
-    // Angular example
+       // Angular example
     angular.module('todoApp', ['ng-sortable'])
 	.constant('ngSortableConfig', {onEnd: function() {
 	    console.log('default onEnd()');
@@ -201,9 +159,7 @@
 	}]);
 })();
 
-
-
-// Background
+ // Background
 document.addEventListener("DOMContentLoaded", function () {
     function setNoiseBackground(el, width, height, opacity) {
 	var canvas = document.createElement("canvas");
