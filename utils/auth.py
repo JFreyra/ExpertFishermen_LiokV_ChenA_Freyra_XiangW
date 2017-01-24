@@ -30,6 +30,7 @@ def isValidRegister(username, password, confirm):
 
     return True
 
+
 '''
 addUser adds user into database
 '''
@@ -50,6 +51,7 @@ def addUser(username, password):
     db.commit()
     db.close()
 
+    
 '''
 isValidLogin returns:
 False if the login is unsuccessful
@@ -82,8 +84,30 @@ def userLogin(username, password):
     db.close()
     return False
 
+
+'''
+special checks if there are any characters that will break code in a string
+'''
 def special(user):
     return any((ord(char)<48 \
                 or (ord(char)>57 and  ord(char)<65) \
                 or (ord(char)>90 and ord(char)<97) \
                 or ord(char)>123) for char in user)
+
+
+'''
+getUserId returns the numerical id of a username in the database
+'''
+def getUserId(username):
+    # connect to database
+    db = sqlite3.connect("../data/potato.db")
+    c = db.cursor()
+
+    #find numerical id
+    q = "SELECT id FROM user where username = \"%s\"" % (username)
+    c.execute(q)
+    
+    result = c.fetchall()[0][0]
+
+    return result
+    

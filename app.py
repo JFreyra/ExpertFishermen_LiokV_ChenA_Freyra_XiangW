@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for, request, redirect, session, flash
-from utils import flaskUtils
+from utils import flaskUtils, auth
 
 def redirect_url():
     return request.referrer or url_for("index")
@@ -19,25 +19,18 @@ def login():
     else: #assert method is POST
         username = request.form.get("username")
         password = request.form.get("password")
-        '''
-        DB function needed: isValidLogin(username, password)
-        * return False if login unsuccessful, if:
-            * username doesn't exist
-            * username does exist, but password wrong
-        * return True otherwise
-        '''
+
         if isValidLogin(username, password):
-            '''
-            DB function needed: getUserID(username)
-            * given username, get user ID
-            '''
-            #user_id = getUserID(username)
-            #session["user_id"] = user_id
+            user_id = getUserID(username)
+            session["user_id"] = user_id
+
             flash('Login successful!', 'success')
+
             return redirect('/')
         
         else:
             flash("Login unsuccessful! Please create an account if you haven't already!", 'error')
+
             return render_template("login.html")
 
     
@@ -45,27 +38,21 @@ def login():
 def register():
     if request.method == 'GET':
         return render_template("register.html")
+
     else: #assert method is POST
         username = request.form.get("username")
         password = request.form.get("password")
         name_first = request.form.get("firstname")
         name_last = request.form.get("lastname")
-        '''
-        DB function needed: isValidRegister(username, password, confirm)
-        * return False if registration unsuccessful, if:
-            * username already exists
-        * return True otherwise
-        '''
+
         if isValidRegister(username, password):
-            '''
-            DB function needed: addUser(username, password, firstname, lastname)
-            * return nothing lmao
-            '''
-            #addUser(username, password, firstname, lastname)
+            addUser(username, password)
             
-            #user_id = getUserID(username)
-            #session["user_id"] = user_id
+            user_id = getUserID(username)
+            session["user_id"] = user_id
+
             flash('Registration successful!', 'success')
+
             return redirect('/')
         
         else:
@@ -77,7 +64,7 @@ def register():
 #Frontend sends AJAX request (POST) to /todo every time todo list changed
 def todo( methods=['POST'] ):
     return request.args.get('')
-       
+
     return ""
 
 
