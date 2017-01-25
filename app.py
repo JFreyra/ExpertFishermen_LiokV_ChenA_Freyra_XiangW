@@ -67,6 +67,9 @@ def todo( methods=['POST'] ):
 
     return ""
 
+@app.route('/songform')
+def songform():
+    return render_template("songsinit.html")
 
 @app.route('/songs', methods=['POST'])
 def songs():
