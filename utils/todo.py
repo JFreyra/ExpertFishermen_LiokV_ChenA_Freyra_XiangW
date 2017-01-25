@@ -68,6 +68,7 @@ def saveTasks( user_id, listTasks ):
     db.close()
     return True
 
+#returns a list of tasks
 def getTasks( user_id ):
     db=sqlite3.connect("data/potato.db")
     c=db.cursor()
