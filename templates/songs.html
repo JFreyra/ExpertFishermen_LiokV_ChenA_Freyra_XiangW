@@ -5,7 +5,12 @@
   </head>
 
   <body>
-    insert songs here via jinja
+    here are your search results! :)
+    <ol>
+    {% for song in songlist %}
+    <li><a href="{{song}}"> {{song}} </a> </li>
+    {% endfor %}
+    </ol>
   </body>
 
 </html>

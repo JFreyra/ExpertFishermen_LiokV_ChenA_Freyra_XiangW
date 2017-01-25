@@ -72,9 +72,11 @@ def todo( methods=['POST'] ):
 def songs():
     title = request.form["title"]
     artist = request.form["artist"]
+    print title
+    print artist
     song_list = spotify.keywordSearch(artist, title)
     print song_list
-    return render_template("songs.html") #need to pass song_list to jinja 
+    return render_template("songs.html", songlist=song_list)
 
 @app.route('/logout')
 def logout():
