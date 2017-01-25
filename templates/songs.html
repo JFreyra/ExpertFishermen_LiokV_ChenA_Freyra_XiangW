@@ -7,9 +7,9 @@
   <body>
     here are your search results! :)
     <ol>
-    {% for song in songlist %}
-    <li><a href="{{song}}"> {{song}} </a> </li>
-    {% endfor %}
+      {% for song in songlist %}
+      <li><a href="{{song[1]}}"> {{song[0]}} </a> </li>
+      {% endfor %}
     </ol>
   </body>
 
