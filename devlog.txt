@@ -47,4 +47,7 @@ JuliusF -- 2017-1-23 14:-5
 added testing files, will remove later
 
 AlanC -- 2017-1-23 14:02
-Debug to-do list, create preliminary Spotify widget
+Debug to-do list, create preliminary song list
+
+AlanC -- 2017-1-24 21:40
+Begin "/songs" route (songs.html), fix auth.py and login/register.html
