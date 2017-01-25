@@ -8,7 +8,7 @@
 
   <body>
     <h1>register here!!!</h1>
-    <form data-abide novalidate>
+    <form data-abide novalidate method="POST">
       <div data-abide-error class="alert callout" style="display: none;">
 	<p><i class="fi-alert"></i> There are some errors in your form.</p>
       </div>
@@ -17,7 +17,7 @@
 	<!-- USERNAME FIELD !-->
 	<div class="small-12 columns">
 	  <label>Username:
-            <input type="text" placeholder="Example: donger24" aria-describedby="exampleHelpText" required>
+            <input type="text" name="username" placeholder="Example: donger24" aria-describedby="exampleHelpText" required>
             <span class="form-error">
               How you finna log in without a username?
             </span>
@@ -29,7 +29,7 @@
 	<!-- PASSWORD FIELD !-->
 	<div class="small-12 columns">
 	  <label>Password:
-            <input type="password" id="password" placeholder="Example: poopernachos" aria-describedby="exampleHelpText" required >
+            <input type="password" name="password" placeholder="Example: poopernachos" aria-describedby="exampleHelpText" required >
             <span class="form-error">
               I'm required!
             </span>
@@ -41,7 +41,7 @@
 	<!-- CONFIRM PASSWORD FIELD !-->
 	<div class="small-12 columns">
 	  <label>Re-enter Password:
-            <input type="password" placeholder="Example: poopernachos" aria-describedby="exampleHelpText2" required pattern="alpha_numeric" data-equalto="password">
+            <input type="password" name="confirm" placeholder="Example: poopernachos" aria-describedby="exampleHelpText2" required pattern="alpha_numeric" data-equalto="password">
             <span class="form-error">
               Hey, passwords are supposed to match!
             </span>
@@ -50,15 +50,13 @@
 	</div>
 	<!-- END CONFIRM PASSWORD FIELD !-->
 
-	<!-- SUBMIT/RESET BUTTONS !-->
+	<!-- SUBMIT BUTTON !-->
 	<div class="row">
 	  <fieldset class="large-6 columns">
-	    <form action="/auth.html" method="POST">
-	      <button class="button" type="submit" value="Register">Register!</button>
-	    </form>
+	      <button class="button" name="register" value="register">Register!</button>
 	  </fieldset>
 	</div>
-	<!-- END SUBMIT/RESET BUTTONS !-->
+	<!-- END SUBMIT BUTTON !-->
     </form>
   </body>
 </html>

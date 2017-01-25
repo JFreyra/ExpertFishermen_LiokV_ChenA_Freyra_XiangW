@@ -6,7 +6,7 @@ Login
 
 {% block content %}
 
-<form data-abide novalidate>
+<form data-abide novalidate method="POST">
   <div data-abide-error class="alert callout" style="display: none;">
     <p><i class="fi-alert"></i> There are some errors in your form.</p>
   </div>
@@ -39,9 +39,7 @@ Login
     <!-- SUBMIT BUTTONS !-->
     <div class="row">
       <fieldset class="large-6 columns">
-	<form action="/asdfasdfa" method="POST">
-	  <button class="button" type="submit" value="Submit">Submit</button>
-	</form>
+	<button class="button" name="login" value="login">Login!</button>
       </fieldset>
     </div>
     <!-- END SUBMIT BUTTONS !-->
