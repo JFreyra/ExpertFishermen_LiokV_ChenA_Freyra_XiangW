@@ -70,8 +70,10 @@ def todo( methods=['POST'] ):
 
 @app.route('/songs', methods=['GET','POST'])
 def songs():
-    print spotify.keywordSearch("Maroon 5", "")
-    return render_template("songs.html")
+    song_list = spotify.keywordSearch(request.form.get("artist"), request.form.get("track"))
+    print song_list
+    return render_template("songs.html") #need to pass song_list to jinja 
+
 @app.route('/logout')
 def logout():
     if "user_id" in session:
