@@ -42,13 +42,16 @@ def register():
     else: #assert method is POST
         username = request.form.get("username")
         password = request.form.get("password")
-        name_first = request.form.get("firstname")
-        name_last = request.form.get("lastname")
+        confirm = request.form.get("confirm")
+        print username
+        print password
+        print confirm
 
-        if isValidRegister(username, password):
-            addUser(username, password)
+        if auth.isValidRegister(username, password, confirm):
+            auth.addUser(username, password)
+            print "user added"
             
-            user_id = getUserID(username)
+            user_id = auth.getUserID(username)
             session["user_id"] = user_id
 
             flash('Registration successful!', 'success')
@@ -57,6 +60,7 @@ def register():
         
         else:
             flash('Registration unsuccessful! Username probably already exists!', 'error')
+            print "something went wrong"
             return render_template("register.html")
 
 

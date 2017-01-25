@@ -6,9 +6,10 @@ False if user was not successfully registered
 True if the user was successfully registered
 '''
 def isValidRegister(username, password, confirm):
-    if (special(user) or len(password) > 8):
+    if (special(username)):
         return False
-
+    print "XDXDXDXD"
+    
     #connect to database
     db = sqlite3.connect("data/potato.db")
     c = db.cursor()
@@ -22,12 +23,17 @@ def isValidRegister(username, password, confirm):
     c.execute(q)
     user_list = c.fetchall()
 
+    print "Ddxdxdxd"
+    print user_list
     #determine if username is already registered
     for user in user_list:
-        if (user_name in user):
+        print user
+        if (username in user):
             db.close()
             return False
 
+    print "lmao"
+    
     return True
 
 
@@ -36,7 +42,7 @@ addUser adds user into database
 '''
 def addUser(username, password):
     #connect to database
-    db = sqlite3.connect("/data/potato.db")
+    db = sqlite3.connect("data/potato.db")
     c = db.cursor()
 
     #hash password
@@ -59,7 +65,7 @@ True if the login is successful
 '''
 def userLogin(username, password):
     #connect to database
-    db = sqlite3.connect("/data/potato.db")
+    db = sqlite3.connect("data/potato.db")
     c = db.cursor()
 
     #hash password
@@ -100,7 +106,7 @@ getUserId returns the numerical id of a username in the database
 '''
 def getUserId(username):
     # connect to database
-    db = sqlite3.connect("../data/potato.db")
+    db = sqlite3.connect("data/potato.db")
     c = db.cursor()
 
     #find numerical id
