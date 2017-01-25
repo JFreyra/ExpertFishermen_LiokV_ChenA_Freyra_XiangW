@@ -94,7 +94,7 @@
 	    form: { name: 'name' }
 	}).done(function (ui) {
 	    var el = document.createElement('li');
-	    el.innerHTML = ui.data.name + '<i class="js-remove">âœ–</i>';
+	    el.innerHTML = ui.data.name + '<i class="js-remove">x</i>';
 	    editableList.el.appendChild(el);
 	});
     };
