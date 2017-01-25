@@ -54,3 +54,6 @@ Begin "/songs" route (songs.html), fix auth.py and login/register.html
 
 VincentL -- 2017-1-25 13:58
 In todo.py, bugfixed deleteTask(), saveTasks() can add and delete multiple tasks all at once, getTasks() returns a user's tasks
+
+williamX -- 2017-1-25 6:52pm
+forgot to record a lot of stuff in devlog, but tidied up frontend and got timer js working
