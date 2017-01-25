@@ -58,10 +58,10 @@ Potato Productivity
 
   <!-- SONGS !-->
   <h2> browse some tunes! </h2>
-  <form action="/songs" methods="GET">
-    title: <input type="text" name="title"/>
+  <form action="/songs" method="POST">
+    title: <input type="text" name="title" placeholder="title"/>
     <br>
-    artist: <input type="text" name="artist"/>
+    artist: <input type="text" name="artist" placeholder="artist"/>
     <button type="submit">Search!</button>
   </form>
 </center>

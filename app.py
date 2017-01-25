@@ -68,9 +68,11 @@ def todo( methods=['POST'] ):
     return ""
 
 
-@app.route('/songs', methods=['GET','POST'])
+@app.route('/songs', methods=['POST'])
 def songs():
-    song_list = spotify.keywordSearch(request.form.get("artist"), request.form.get("track"))
+    title = request.form["title"]
+    artist = request.form["artist"]
+    song_list = spotify.keywordSearch(artist, title)
     print song_list
     return render_template("songs.html") #need to pass song_list to jinja 
 

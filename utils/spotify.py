@@ -62,14 +62,14 @@ def keywordSearch(artist,track):
 
 
 #test cases
-pprint( keywordSearch("Maroon 5","Sunday Morning") )
-#this returns ["spotify url1","spotify url2", ...]
-print()
-print()
-#pprint( keywordSearch("Maroon 5","") )
-#this returns [["track1","spotify url1"], ["track2","spotify url2"], ...]
-print()
-print()
-#pprint( keywordSearch("","Sunday Morning") )
-#this returns [["artist1,artist2,...","spotify url1"], ["artist1,artist2,...","spotify url2"], ...]
+# pprint( keywordSearch("Maroon 5","Sunday Morning") )
+# #this returns ["spotify url1","spotify url2", ...]
+# print()
+# print()
+# #pprint( keywordSearch("Maroon 5","") )
+# #this returns [["track1","spotify url1"], ["track2","spotify url2"], ...]
+# print()
+# print()
+# #pprint( keywordSearch("","Sunday Morning") )
+# #this returns [["artist1,artist2,...","spotify url1"], ["artist1,artist2,...","spotify url2"], ...]
 
