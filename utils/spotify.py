@@ -52,7 +52,8 @@ def keywordSearch(artist,track):
             for t in d["items"]:
                 for a in t["artists"]:
                     if a["name"] == artist:
-                        retList.append( t["external_urls"]["spotify"] )
+                        tempList = [t["name"],t["external_urls"]["spotify"]]
+                        retList.append( tempList )
                         counter += 1
                         if counter == 3:
                             return retList
