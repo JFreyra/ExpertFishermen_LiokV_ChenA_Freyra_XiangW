@@ -4,18 +4,11 @@
   <head>
   </head>
 
-  <center>
-    
-    <body>
-      here are your search results! :)
-      <ol>
-	{% for song in songlist %}
-	<li><a target="_blank" href="{{song[1]}}"> {{song[0]}} </a> </li>
-	{% endfor %}
-      </ol>
-    </body>
 
-    
+  <center>
+
+    <h2> browse some tunes! (CAPITALIZATION MATTERS!) </h2>
+    <h3> ie. "maroon 5" is not the same as "Maroon 5" </h3>
     <br>
     <form action="/songs" method="POST">
       title: <input type="text" name="title" placeholder="title"/>
