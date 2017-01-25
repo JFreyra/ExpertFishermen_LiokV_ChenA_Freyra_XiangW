@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for, request, redirect, session, flash
-from utils import flaskUtils, auth
+from utils import flaskUtils, auth, spotify
 
 def redirect_url():
     return request.referrer or url_for("index")
@@ -68,6 +68,10 @@ def todo( methods=['POST'] ):
     return ""
 
 
+@app.route('/songs', methods=['GET','POST'])
+def songs():
+    print spotify.keywordSearch("Maroon 5", "")
+    return render_template("songs.html")
 @app.route('/logout')
 def logout():
     if "user_id" in session:
