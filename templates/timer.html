@@ -1,0 +1,58 @@
+{% extends "template.html" %} {% block title %} Potato Productivity {% endblock title %} {% block content %}
+
+<h1>Potato Timer</h1>
+<p id="time">Starting timer...</p>
+
+
+<!-- CONNECTED LISTS -->
+<div class="kek" style="height:0px">
+  <div data-force="30" class="layer block" style="left: 14.5%; top: 0; width: 37%">
+    <ul id="foo" class="block__list block__list_words">
+    </ul>
+  </div>
+  <div data-force="18" class="layer block" style="left: 58%; top: 143px; width: 40%;">
+    <ul id="bar" class="block__list block__list_tags">
+    </ul>
+  </div>
+</div>
+<!-- END CONNECTED LISTS -->
+
+
+<!-- EDITABLE LIST -->
+<div class="container">
+  <div id="filter">
+    <div>
+      <div data-force="5" class="layer title title_xl">To-Do List</div>
+    </div>
+
+    <div class="block__list block__list_words">
+      <ul id="editable">
+        <li>eat<i class="js-remove">x</i></li>
+        <li>sleep<i class="js-remove">x</i></li>
+        <li>repeat<i class="js-remove">x</i></li>
+      </ul>
+
+      <button id="addUser">Add</button>
+    </div>
+  </div>
+</div>
+<!-- END EDITABLE LIST -->
+
+<br>
+<br>
+
+<!-- SONGS !-->
+<iframe src="/songform" style="border:none;" height="500"></iframe>
+
+<script type="text/javascript" src="/static/js/timer.js"></script>
+<script>
+  {% if "intervals" in session %}
+  document.getElementById("time").textContent = "Resuming your timer...";
+  window.onload = setupTimer(JSON.parse('{{ session["intervals"] | safe }} '));
+  {% else %}
+  window.onload = setupTimer(); 
+  {% endif %}
+</script>
+
+
+{% endblock content %}
