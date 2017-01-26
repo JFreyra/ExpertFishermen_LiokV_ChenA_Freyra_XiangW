@@ -6,7 +6,7 @@ def redirect_url():
     return request.referrer or url_for("index")
 
 app = Flask(__name__)
-app.secret_key = "abcdefghijklmnopqrstuvwxyzunguessablekeybois"
+app.secret_key = "abcdefghijklmnopqrstuvwxyzcompletelyunguessablekeybois"
 
 @app.route('/')
 def index():
@@ -98,9 +98,10 @@ def pushToSession():
 
 @app.route('/logout')
 def logout():
+    if "intervals" in session:
+        session.pop("intervals", None)
     if "user_id" in session:
-        for key in session:
-            session.pop(key, None)
+        session.pop("user_id", None)
     else:
         flash('Not logged in yet!', 'error')
     return redirect(flaskUtils.redirect_url())

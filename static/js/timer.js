@@ -80,6 +80,7 @@ var resetTimer = function () {
 
 
 var alertMessage = function (curInterval_index) {
+    console.log("alertmsg index: " + curInterval_index);
     var name = intervals[curInterval_index].name;
     switch (name) {
     case "work":
@@ -106,7 +107,7 @@ var startTimer = function (curInterval_index, display) {
                 resetTimer(intervals);
                 curInterval_index = 0;
             }
-            alertMessage(intervals, curInterval_index);
+            alertMessage(curInterval_index);
             console.log(intervals[curInterval_index]);
         }
 
