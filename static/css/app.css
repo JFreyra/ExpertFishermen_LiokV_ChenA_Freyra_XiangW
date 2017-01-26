@@ -33,7 +33,7 @@ hr {
 
 a.button {
     border-radius: 10px;
-    max-width: 50%;
+    max-width: 70%;
 }
 
 .callout p {
@@ -51,10 +51,10 @@ a.button {
     text-align: center;
     margin: auto;
     position: relative;
-    background: linear-gradient(27deg, #ff6767 5px, transparent 5px) 0 5px, linear-gradient(207deg, #ff8b8b 5px, transparent 5px) 10px 0px, linear-gradient(27deg, #ff6e6e 5px, transparent 5px) 0px 10px, linear-gradient(207deg, #ff8b8b 5px, transparent 5px) 10px 5px, linear-gradient(90deg, #ff7f7f 10px, transparent 10px), linear-gradient(#fd8989 25%, #ff6767 25%, #ff5656 50%, transparent 50%, transparent 75%, #ff8282 75%, #ff6565);
+    background: linear-gradient(207deg, #ff8b8b 5px, transparent 5px) 10px 0px, linear-gradient(#fd8989 25%, #ff6767 25%, #ff5656 50%, transparent 50%, transparent 75%, #ff8282 75%, #ff6565);
     background-color: #ff5d5d;
     background-size: 20px 20px;
-    color: rgba(0, 0, 0, 0.76);
+    color: rgba(0, 0, 0, 0.9);
     border-radius: 15px;
     border: 5px outset #6a6a6a;
 }

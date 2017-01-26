@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
 
-{% block head %}
-
 <head>
     <title>
         {% block title %} CHANGE THE TITLE {% endblock title %}
@@ -12,7 +10,10 @@
     <link href="//fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet" type="text/css" />
     <link type="text/css" rel="stylesheet" href="/static/css/foundation.css">
     <link href="/static/css/app.css" rel="stylesheet" type="text/css" />
+    <script src="/static/js/vendor/jquery-3.1.1.min.js">
+    </script>
 </head>
+{% block head %}
 {% endblock head %}
 
 <body>
@@ -32,12 +33,13 @@
         </div>
     </div>
     <!-- END NAV BAR !-->
-
+    
     {% block content %} {% endblock content %}
-    <script src="/static/js/vendor/jquery.js"></script>
     <script src="/static/js/Sortable.js"></script>
     <script src="/static/js/Ply.min.js"></script>
     <script src="/static/js/app.js"></script>
+    
+    
 
 </body>
 

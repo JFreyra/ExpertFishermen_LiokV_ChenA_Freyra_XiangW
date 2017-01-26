@@ -70,3 +70,4 @@ Made a python file called dbsetup.py that contains the schema for each table
 
 williamX -- 2017-1-26 12:04am
 * started frontend work on landing page
+* started custom timer lightbox form

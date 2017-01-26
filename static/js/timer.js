@@ -1,19 +1,15 @@
 var intervals = [];
 
 
-var Interval = function (name, startTime, curTime) {
+var Interval = function (name, startTime) {
     //timer units in seconds
     this.name = name;
     this.startTime = startTime;
-    if (curTime !== undefined) { //if given a curTime
-        this.curTime = curTime;
-    } else {
-        this.curTime = startTime;
-    }
+    this.curTime = startTime;
 };
 
 
-window.onbeforeunload = function () {
+window.onbeforeunload = function () { //when closing out
     if (intervals.length == 0) { //might happen
         //just shove in a basic pomodoro lmao
         var work = new Interval("work", 25 * 60); //25 min
