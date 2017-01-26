@@ -15,6 +15,7 @@ def index():
 
 @app.route('/timer')
 def timer():
+    session.pop("intervals", None)
     return render_template("timer.html")
 
 @app.route('/login', methods=['GET','POST'])
