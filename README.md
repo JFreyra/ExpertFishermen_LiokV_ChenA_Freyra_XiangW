@@ -12,3 +12,4 @@ Potato Productivity is a productivity tool that utilizes a user database and the
 
 4) You can use the to-do list widget to keep track of tasks at hand. Drag & drop based on priority, add/remove items as needed.
 
+5) You can use the music widget to listen to some tunes while working. Simply enter a song title, artist, or both to receive results (Spotify is required to listen to these songs).
