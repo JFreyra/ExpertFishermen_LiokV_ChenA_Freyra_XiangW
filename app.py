@@ -41,9 +41,9 @@ def register():
         return render_template("register.html")
 
     else: #assert method is POST
-        username = request.form.get("username")
-        password = request.form.get("password")
-        confirm = request.form.get("confirm")
+        username = request.form["username"]
+        password = request.form["password"]
+        confirm = request.form["confirm"]
         print username
         print password
         print confirm
