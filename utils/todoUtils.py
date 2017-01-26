@@ -45,7 +45,7 @@ def deleteTask( user_id, position ):
     counter = position
     num = 0
     while num < times:
-        q = "UPDATE task SET id = " + str(counter) + ", 3\" WHERE id = " + str(counter+1)
+        q = "UPDATE task SET id = " + str(counter) + ", 3\" WHERE id = "
         c.execute(q)
         counter+=1
         num+=1

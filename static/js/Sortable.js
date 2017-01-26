@@ -894,7 +894,7 @@
             
             
             /*************************
-               MY CODE :DDDDDD
+               MY CODE DONT GET LOST
             *************************/
             var listElements = document.getElementById("editable").getElementsByTagName("li");
             var listElementsContent = []
@@ -904,6 +904,7 @@
             }
             console.log(listElementsContent);
             var input = { data: JSON.stringify(listElementsContent) }
+            /* LAST MIN ERRORS HELP
             $.post("/storeTodo", input,
                 function (data, success) {
                     if (!success) {
@@ -912,7 +913,7 @@
                     //nothing needs to be done lmao
                 }
             );
-            
+            */
             
             
             
