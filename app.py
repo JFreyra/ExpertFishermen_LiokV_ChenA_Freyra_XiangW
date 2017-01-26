@@ -68,6 +68,7 @@ def saveCustomTimer():
         ]
         print intervals
         session["intervals"] = json.dumps(intervals)
+        session["custom"] = True
     return redirect( url_for("timer") )
         
     
@@ -111,10 +112,12 @@ def songform():
 
 @app.route('/songs', methods=['POST'])
 def songs():
-    title = request.form["title"]
-    artist = request.form["artist"]
+    title = request.form.get("title")
+    artist = request.form.get("artist")
     print title
     print artist
+    if (not artist and not title):
+        return render_template("songsinit.html", message="Please enter either an artist or a title!")
     song_list = spotify.keywordSearch(artist, title)
     print song_list
     return render_template("songs.html", songlist=song_list)
@@ -132,6 +135,8 @@ def pushToSession():
 def logout():
     if "intervals" in session:
         session.pop("intervals", None)
+    if "custom" in session:
+        session.pop("custom", None)
     if "user_id" in session:
         session.pop("user_id", None)
     else:

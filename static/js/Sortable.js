@@ -830,7 +830,7 @@
 			clearInterval(this._loopId);
 			clearInterval(autoScroll.pid);
 			clearTimeout(this._dragStartTimer);
-
+          
 			// Unbind events
 			_off(document, 'mousemove', this._onTouchMove);
 

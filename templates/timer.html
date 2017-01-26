@@ -42,13 +42,21 @@
 <br>
 
 <!-- SONGS !-->
-<iframe src="/songform" style="border:none;" height="500"></iframe>
-<script type="text/javascript" src="/static/js/timer.js"></script>
+<iframe src="/songform" style="border:none; border-radius:30px" height=700px width=50%></iframe>
+<script type="text/javascript" src="/static/js/timer.js"></script><script type="text/javascript" src="/static/js/storeTodo.js"></script>
 <script>
   {% if "intervals" in session %}
-  
-  document.getElementById("time").textContent = "Resuming your timer...";
-  window.onload = setupTimer(JSON.parse(`{{ session["intervals"] | safe }} `));
+    {% if "custom" in session and session["custom"] %}
+        window.onload = setupTimer(JSON.parse(`{{ session["intervals"] | safe }} `));
+     {% else %}
+  var r = confirm("You have an existing timer in session. Would you like to resume?");
+   if (r == true) {
+       document.getElementById("time").textContent = "Resuming your timer...";
+       window.onload = setupTimer(JSON.parse(`{{ session["intervals"] | safe }} `));
+   } else {
+        window.onload = setupTimer();
+   }
+  {% endif %}
   {% else %}
   window.onload = setupTimer(); 
   {% endif %}

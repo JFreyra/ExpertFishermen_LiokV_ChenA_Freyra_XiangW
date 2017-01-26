@@ -71,3 +71,9 @@ Made a python file called dbsetup.py that contains the schema for each table
 williamX -- 2017-1-26 12:04am
 * started frontend work on landing page
 * started custom timer lightbox form
+
+williamX -- 2017-1-26 6:31am
+* finished landing page
+* finished custom timer saving and setting
+* added feature to optionally reset a saved timer on refresh
+* tidied up navbar, login, register, and timer pages

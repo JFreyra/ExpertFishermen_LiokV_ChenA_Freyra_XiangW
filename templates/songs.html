@@ -1,30 +1,37 @@
-<!DOCTYPE html>
-<html>
+{% extends "template.html" %} {% block head %}
+<style>
+    html,
+    body {
+        background-color: black;
+        background-image: radial-gradient(white, rgba(255, 255, 255, .2) 2px, transparent 40px), radial-gradient(white, rgba(255, 255, 255, .15) 1px, transparent 30px), radial-gradient(white, rgba(255, 255, 255, .1) 2px, transparent 40px), radial-gradient(rgba(255, 255, 255, .4), rgba(255, 255, 255, .1) 2px, transparent 30px);
+        background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+        background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+        margin-top: 20px;
+        margin-bottom: 30px;
+        color: white;
+    }
+</style>
+{% endblock head %} {% block navbar %} {% endblock navbar %} {% block content %}
 
-  <head>
-  </head>
-
-  <center>
-    
-    <body>
-      here are your search results! :)
-      <ol>
-	{% for song in songlist %}
-	<li><a target="_blank" href="{{song[1]}}"> {{song[0]}} </a> </li>
-	{% endfor %}
-      </ol>
-    </body>
-
-    
-    <br>
-    <form action="/songs" method="POST">
-      title: <input type="text" name="title" placeholder="title"/>
-      <br>
-      artist: <input type="text" name="artist" placeholder="artist"/>
-      <button type="submit">Search!</button>
-    </form>
-
-  </center>
-
-  
-</html>
+<center style="padding-top:10px;">
+    <div class="row">
+        <div class="small-8 small-offset-2 columns">
+            <h2> Search Results </h2>
+            <ol>
+                {% if not songlist %}
+                <font color="red">Whoops! No songs by that title/author was found. Please search again!</font> {% endif %} {% for song in songlist %}
+                <li><a target="_blank" href="{{song[1]}}"> {{song[0]}} </a> </li>
+                {% endfor %}
+            </ol>
+            <br>
+            <h3> Search Again </h3>
+            <form action="/songs" method="POST">
+                Title:
+                <input type="text" name="title" placeholder="title" />
+                <br> Artist:
+                <input type="text" name="artist" placeholder="artist" />
+                <button class="button" type="submit">Search!</button>
+            </form>
+        </div>
+    </div>
+    {% endblock content %}

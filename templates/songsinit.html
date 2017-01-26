@@ -1,16 +1,32 @@
-{% extends "template.html" %}
-{% block navbar %}
-{% endblock navbar %}
-{% block content %}
-  <center>
-    <h2> browse some tunes! (CAPITALIZATION MATTERS!) </h2>
-    <h3> ie. "maroon 5" is not the same as "Maroon 5" </h3>
-    <br>
-    <form action="/songs" method="POST">
-      title: <input type="text" name="title" placeholder="title"/>
-      <br>
-      artist: <input type="text" name="artist" placeholder="artist"/>
-      <button class="button" type="submit">Search!</button>
-    </form>
-  </center>
+{% extends "template.html" %} {% block head %}
+<style>
+    html,
+    body {
+        background-color: black;
+        background-image: radial-gradient(white, rgba(255, 255, 255, .2) 2px, transparent 40px), radial-gradient(white, rgba(255, 255, 255, .15) 1px, transparent 30px), radial-gradient(white, rgba(255, 255, 255, .1) 2px, transparent 40px), radial-gradient(rgba(255, 255, 255, .4), rgba(255, 255, 255, .1) 2px, transparent 30px);
+        background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+        background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+        margin-top: 40px;
+        color: white;
+    }
+</style>
+{% endblock head %} {% block navbar %} {% endblock navbar %} {% block content %}
+<center style="padding:20px">
+    <div class="row">
+        <div class="small-8 small-offset-2 columns">
+            <h2> Browse some Tunes! (CAPITALIZATION MATTERS!) </h2>
+            <h3> ie. "maroon 5" is not the same as "Maroon 5" </h3>
+            <font color="red">{{ message }}</font>
+            <br>
+            <br>
+            <form action="/songs" method="POST">
+                Title:
+                <input type="text" name="title" placeholder="title" /> Artist:
+                <input type="text" name="artist" placeholder="artist" />
+                <br>
+                <button class="button" type="submit">Search!</button>
+            </form>
+        </div>
+    </div>
+</center>
 {% endblock content %}
