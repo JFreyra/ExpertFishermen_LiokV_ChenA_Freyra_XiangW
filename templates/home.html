@@ -21,14 +21,25 @@
 
                     <a href="/timer" class="button large"><img src="/static/images/tomato.png" height=20px width=20px>&nbsp;&nbsp;&nbsp;Pomodoro</a>
                     <p>A default Pomodoro Timer consists of a 25-minute work period followed by a 5-minute break.</p>
-                    <div style="margin:8px;"></div> 
+                    <div style="margin:9px;"></div>
                 </div>
             </div>
 
             <div class="small-5 columns">
                 <div class="callout">
+                    {% if "user_id" in session %}
+                    <a href="" class="button large" data-featherlight="#fl1">
+                        <img src="/static/images/gear.png" height=20px width=20px>&nbsp;&nbsp;&nbsp;Custom
+                    </a>
 
-                    <a href="#" class="button large" data-featherlight="#fl1"><img src="/static/images/gear.png" height=20px width=20px>&nbsp;&nbsp;&nbsp;Custom</a>
+                    {% else %}
+                    <a data-tooltip aria-haspopup="true" href="" class="button large has-tip top" disabled title="You must be logged in to create and save a Custom Timer"><img src="/static/images/gear.png" height=20px width=20px>&nbsp;&nbsp;&nbsp;Custom</a>
+                    <br>
+                    <p style="color:rgba(255, 0, 0, 0.63)">
+                        You must be logged in to create and save a Custom Timer!
+                    </p>
+                    {% endif %}
+
 
                     <p>Pomodoro not fitting your needs? Customize your productivity with a Custom Timer!</p>
 
@@ -36,16 +47,16 @@
                     <div style="display:none;">
                         <div class="lightbox" id="fl1">
                             <h2>Custom Timer Settings</h2>
-                            <form action="" method="POST">
-                                How long should each work interval last? <br>
-                                hours <input type="text" name="workintervalh">
-				minutes <input type="text" name="workintervalm">
-				seconds <input type="text" name="workintervals">
+                            <form action="/saveCustomTimer" method="POST">
+                                How long should each work interval last?
+                                <br> minutes
+                                <input type="text" name="work_mins" style="display:inline !important"> seconds
+                                <input type="text" name="work_secs" style="display:inline !important"> How long should each rest interval last?
+                                <br> minutes
+                                <input type="text" name="rest_mins"> seconds
+                                <input type="text" name="rest_secs">
 
-				How long should each rest interval last? <br>
-				hours <input type="text" name="restintervalh">
-				minutes <input type="text" name="restintervalm">
-				seconds <input type="text" name="restintervals">
+                                <button type="submit" class="success button">Save</button>
                             </form>
                         </div>
                     </div>

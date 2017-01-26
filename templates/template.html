@@ -13,33 +13,39 @@
     <script src="/static/js/vendor/jquery-3.1.1.min.js">
     </script>
 </head>
-{% block head %}
-{% endblock head %}
+{% block head %} {% endblock head %}
 
 <body>
+    <script src="/static/js/vendor/foundation.min.js"></script>
     <!-- NAV BAR AT THE TOP !-->
+    {% block navbar %}
     <div class="top-bar">
         <div class="top-bar-left">
             <ul class="dropdown menu" data-dropdown-menu>
                 <li class="menu-text">Portarto</li>
+                <li class="divider"></li>
                 <li><a href="/">Home</a></li>
+                <li class="divider"></li>
                 {% if "user_id" not in session %}
                 <li><a href="/login">Login</a></li>
+                <li class="divider"></li>
+                <li><a href="/register">Register</a></li>
+                {% endif %} {% if "user_id" in session %}
+                <li class="divider"></li>
+                <li> <a href="/logout">Logout</a></li>
                 {% endif %}
-		{% if "user_id" in session %}
-		<li> <a href="/logout">Logout</a></li>
-		{% endif %}
             </ul>
         </div>
     </div>
+    {% endblock navbar %}
     <!-- END NAV BAR !-->
-    
+
     {% block content %} {% endblock content %}
     <script src="/static/js/Sortable.js"></script>
     <script src="/static/js/Ply.min.js"></script>
     <script src="/static/js/app.js"></script>
-    
-    
+
+
 
 </body>
 

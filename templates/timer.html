@@ -46,8 +46,9 @@
 <script type="text/javascript" src="/static/js/timer.js"></script>
 <script>
   {% if "intervals" in session %}
+  
   document.getElementById("time").textContent = "Resuming your timer...";
-  window.onload = setupTimer(JSON.parse('{{ session["intervals"] | safe }} '));
+  window.onload = setupTimer(JSON.parse(`{{ session["intervals"] | safe }} `));
   {% else %}
   window.onload = setupTimer(); 
   {% endif %}

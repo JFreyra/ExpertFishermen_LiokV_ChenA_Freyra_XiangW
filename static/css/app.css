@@ -46,6 +46,10 @@ a.button {
     padding-bottom: 30px;
 }
 
+.lightbox input{
+    display: inline !important;
+}
+
 .container {
     width: 30%;
     text-align: center;
@@ -220,6 +224,11 @@ img {
     padding: 20px;
 }
 
+li+li { border-left: 0.1em solid rgba(0, 0, 0, 0.7) }
+li:hover {
+    opacity: 0.6;
+}
+
 #filter button {
     color: #fff;
     border: none;
@@ -251,12 +260,13 @@ img {
     /* overrides 'move' */
 }
 
-#todos input {
+input {
     padding: 5px;
     font-size: 14px;
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
 }
+
 
 #nested ul li {
     background-color: rgba(0, 0, 0, .05);

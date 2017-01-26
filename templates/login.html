@@ -1,50 +1,52 @@
-{% extends "template.html" %}
-
-{% block title %}
-Login
-{% endblock title %}
-
-{% block content %}
+{% extends "template.html" %} {% block title %} Login {% endblock title %} {% block content %}
 
 <form data-abide novalidate method="POST">
-  <div data-abide-error class="alert callout" style="display: none;">
-    <p><i class="fi-alert"></i> There are some errors in your form.</p>
-  </div>
-  <div class="row">
-
-    <!-- USERNAME FIELD !-->
-    <div class="small-12 columns">
-      <label>Username:
-        <input type="text" name="username" placeholder="Example: donger24" aria-describedby="exampleHelpText" required pattern="number">
-        <span class="form-error">
-          How you finna log in without a username?
-        </span>
-      </label>
-      <p class="help-text" id="exampleHelpText">Type your username!!</p>
+    <div data-abide-error class="alert callout" style="display: none;">
+        <p><i class="fi-alert"></i> There are some errors in your form.</p>
     </div>
-    <!-- END USERNAME FIELD !-->
 
-    <!-- PASSWORD FIELD !-->
-    <div class="small-12 columns">
-      <label>Password:
-        <input type="password" name="password" id="password" placeholder="Example: poopernachos" aria-describedby="exampleHelpText" required >
-        <span class="form-error">
-          I'm required!
-        </span>
-      </label>
-      <p class="help-text" id="exampleHelpText">Enter a password please!!</p>
-    </div>
-    <!-- END PASSWORD FIELD !-->
+    <br>
+    <br>
 
-    <!-- SUBMIT BUTTONS !-->
-    <div class="row">
-      <fieldset class="large-6 columns">
-	<button class="button" name="login" value="login">Login!</button>
-      </fieldset>
-    </div>
-    <!-- END SUBMIT BUTTONS !-->
-</form>
+    <center>
+        <div class="callout text-center" style="width: 70%; border-radius:30px;">
+            <h1>Make an Account</h1>
+            <br>
+            <div class="row">
+                <div class="small-2 columns">&nbsp;</div>
+                <!-- USERNAME FIELD !-->
+                <div class="small-8 columns">
+                    <label>
+                        Username:
+                        <input type="text" name="username" aria-describedby="exampleHelpText" required pattern="number">
+                        <span class="form-error">
+            How you finna log in without a username?
+            </span>
+                    </label>
+
+                    <!-- END USERNAME FIELD !-->
 <br>
-<a href="/register">Need to make an account?</a>
-
+                    <!-- PASSWORD FIELD !-->
+                    <label>
+                        Password:
+                        <input type="password" name="password" id="password" aria-describedby="exampleHelpText" required>
+                        <span class="form-error">
+            I'm required!
+            </span>
+                    </label>
+                    <!-- END PASSWORD FIELD !-->
+                </div>
+                <div class="small-2 columns">&nbsp;</div>
+            </div>
+            <br><Br>
+            <!-- SUBMIT BUTTONS !-->
+            <button class="button" name="login" value="login">Login!</button>
+            <!-- END SUBMIT BUTTONS !-->
+            <br>
+            <br>
+            <br>
+            <a href="/register">Need to make an account?</a>
+        </div>
+    </center>
+</form>
 {% endblock content %}

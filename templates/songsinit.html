@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html>
-
-  <head>
-  </head>
-
-
+{% extends "template.html" %}
+{% block navbar %}
+{% endblock navbar %}
+{% block content %}
   <center>
-
     <h2> browse some tunes! (CAPITALIZATION MATTERS!) </h2>
     <h3> ie. "maroon 5" is not the same as "Maroon 5" </h3>
     <br>
@@ -14,10 +10,7 @@
       title: <input type="text" name="title" placeholder="title"/>
       <br>
       artist: <input type="text" name="artist" placeholder="artist"/>
-      <button type="submit">Search!</button>
+      <button class="button" type="submit">Search!</button>
     </form>
-
   </center>
-
-  
-</html>
+{% endblock content %}

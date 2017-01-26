@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for, request, redirect, session, flash
-from utils import flaskUtils, auth, spotify
+from utils import flaskUtils, auth, spotify, timerUtils
 import json
 
 def redirect_url():
@@ -15,8 +15,8 @@ def index():
 
 @app.route('/timer')
 def timer():
-    session.pop("intervals", None)
     return render_template("timer.html")
+
 
 @app.route('/login', methods=['GET','POST'])
 def login():
@@ -40,6 +40,37 @@ def login():
             print "login unsuccessful"
             return render_template("login.html")
 
+        
+@app.route('/saveCustomTimer', methods=['POST'])
+def saveCustomTimer():
+    if "user_id" in session:
+        try:
+            work_mins = int(request.form.get("work_mins"))
+            work_secs_total = (work_mins * 60) + int(request.form.get("work_secs"))
+            rest_mins = int(request.form.get("rest_mins"))
+            rest_secs_total = (rest_mins * 60) + int(request.form.get("rest_secs"))
+        except:
+            return "Make sure you only enter numbers for times! Go back and try again!"
+        timerUtils.storeTimer(session["user_id"], 0, work_secs_total, rest_secs_total, 0)
+        
+        #put in timer format
+        intervals = [
+            {
+                "name": "work",
+                "startTime": work_secs_total,
+                "curTime": work_secs_total
+            },
+            {
+                "name":"break",
+                "startTime": rest_secs_total,
+                "curTime": rest_secs_total
+            }
+        ]
+        print intervals
+        session["intervals"] = json.dumps(intervals)
+    return redirect( url_for("timer") )
+        
+    
     
 @app.route('/register', methods=['GET','POST'])
 def register():
@@ -71,7 +102,6 @@ def register():
 #Frontend sends AJAX request (POST) to /todo every time todo list changed
 def todo( methods=['POST'] ):
     return request.args.get('')
-
 
 
 @app.route('/songform')
