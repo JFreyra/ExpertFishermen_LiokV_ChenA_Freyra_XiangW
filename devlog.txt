@@ -57,3 +57,7 @@ In todo.py, bugfixed deleteTask(), saveTasks() can add and delete multiple tasks
 
 williamX -- 2017-1-25 6:52pm
 forgot to record a lot of stuff in devlog, but tidied up frontend and got timer js working
+
+alanC -- 2017-1-25 19:49
+debug & link login/register/home to potato.db
+Update readme, designdoc
