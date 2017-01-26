@@ -3,6 +3,16 @@
 ## Potato Productivity: About
 Potato Productivity is a productivity tool that utilizes a user database and the Spotify API to help the user stay productive. The main feature of the site is the Pomodoro timer, which times the user while they work and notifies them when they should take a quick break to keep their mind fresh and prevent burning out. There will be a dynamic task list on the side that will allow the user to add tasks as they come up and delete them as they complete them. The site will also implement the Spotify API and generate either a random work playlist or a playlist based on the user’s preferences.
 
+## Demo
+https://youtu.be/fR3s29HUEow
+
+## Necessary Installations
+1. Flask (of course) - pip install flask
+2. Request - pip install requests
+
+## API
+Spotify - used to search for specific tracks/artists and return a list of links to the songs on the spotify web player
+
 ## How to use
 1) When you're ready to start working, run app.py
 
