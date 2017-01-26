@@ -8,7 +8,7 @@ Potato Productivity is a productivity tool that utilizes a user database and the
 
 2) Enter localhost:5000 in the search bar
 
-3) The timer will automatically start counting down from 25 minutes. Once the 25 minute work period is over, you will be notified and will begin a 4 minute rest period. This cycle continues 3 times before prompting you to start from the top again.
+3) The timer will automatically start counting down from 25 minutes. Once the 25 minute work period is over, you will be notified and will begin a 5 minute rest period. This cycle continues 3 times before prompting you to start from the top again.
 
 4) You can use the to-do list widget to keep track of tasks at hand. Drag & drop based on priority, add/remove items as needed.
 
