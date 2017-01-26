@@ -1,7 +1,7 @@
 {% extends "template.html" %} {% block title %} Potato Productivity {% endblock title %} {% block content %}
 
     <h1>Pomodoro Timer</h1>
-    <p id="time">here we go!!!</p>
+    <p id="time">Starting timer...</p>
 
 
     <!-- CONNECTED LISTS -->
@@ -46,8 +46,9 @@
 
 <script type="text/javascript" src="/static/js/timer.js"></script>
 <script>
-    {% if intervals is defined %}
-    window.onload = setupTimer( JSON.parse({{intervals}} );
+    {% if "intervals" in session %}
+    document.getElementById("time").textContent = "Resuming your timer...";
+    window.onload = setupTimer( JSON.parse('{{ session["intervals"] | safe }} ') );
     {% else %}
     window.onload = setupTimer();               
     {% endif %}

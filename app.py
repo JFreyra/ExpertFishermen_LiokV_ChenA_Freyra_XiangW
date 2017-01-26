@@ -1,11 +1,12 @@
 from flask import Flask, render_template, url_for, request, redirect, session, flash
 from utils import flaskUtils, auth, spotify
+import json
 
 def redirect_url():
     return request.referrer or url_for("index")
 
 app = Flask(__name__)
-app.secret_key = "abcdefghijklmnopqrstuvwxyz"
+app.secret_key = "abcdefghijklmnopqrstuvwxyzunguessablekeybois"
 
 @app.route('/')
 def index():
@@ -69,11 +70,12 @@ def register():
 def todo( methods=['POST'] ):
     return request.args.get('')
 
-    return ""
+
 
 @app.route('/songform')
 def songform():
     return render_template("songsinit.html")
+
 
 @app.route('/songs', methods=['POST'])
 def songs():
@@ -85,10 +87,20 @@ def songs():
     print song_list
     return render_template("songs.html", songlist=song_list)
 
+
+@app.route('/sessionPush', methods=['POST'])
+def pushToSession():
+    name = request.form.get("name")
+    data = request.form.get("data")
+    print "%s: %s" % (name, data)
+    session[name] = data;
+    return "" #idt it matters what i return
+
 @app.route('/logout')
 def logout():
     if "user_id" in session:
-        session.pop("user_id")
+        for key in session:
+            session.pop(key, None)
     else:
         flash('Not logged in yet!', 'error')
     return redirect(flaskUtils.redirect_url())

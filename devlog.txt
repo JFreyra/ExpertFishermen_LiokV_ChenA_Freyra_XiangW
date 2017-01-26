@@ -61,3 +61,6 @@ forgot to record a lot of stuff in devlog, but tidied up frontend and got timer 
 alanC -- 2017-1-25 19:49
 debug & link login/register/home to potato.db
 Update readme, designdoc
+
+williamX -- 2017-1-25 9:04
+* finished saving timer info
