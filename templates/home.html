@@ -1,58 +1,49 @@
 {% extends "template.html" %} {% block title %} Potato Productivity {% endblock title %} {% block content %}
+<br>
+<br>
+<hr>
+<h1 style="font-size:4em;font-weight:900">Potato Productivity</h1>
+<hr>
+<br>
+<br>
 
-    <h1>Pomodoro Timer</h1>
-    <p id="time">Starting timer...</p>
-
-
-    <!-- CONNECTED LISTS -->
-    <div class="kek" style="height:0px">
-        <div data-force="30" class="layer block" style="left: 14.5%; top: 0; width: 37%">
-            <ul id="foo" class="block__list block__list_words">
-            </ul>
-        </div>
-        <div data-force="18" class="layer block" style="left: 58%; top: 143px; width: 40%;">
-            <ul id="bar" class="block__list block__list_tags">
-            </ul>
-        </div>
-    </div>
-    <!-- END CONNECTED LISTS !-->
-
-
-    <!-- EDITABLE LIST -->
-    <div class="container">
-        <div id="filter">
-            <div>
-                <div data-force="5" class="layer title title_xl">To-Do List</div>
-            </div>
-
-            <div class="block__list block__list_words">
-                <ul id="editable">
-                    <li>eat<i class="js-remove">x</i></li>
-                    <li>sleep<i class="js-remove">x</i></li>
-                    <li>repeat<i class="js-remove">x</i></li>
-                </ul>
-
-                <button id="addUser">Add</button>
-            </div>
-        </div>
-    </div>
-    <!-- END EDITABLE LIST !-->
+<div class="row">
+<div class="small-10 columns small-offset-1" id="timerChoice">
 
     <br>
+    <h2 style="color:white;">Please choose a timer...</h2>
     <br>
 
-    <!-- SONGS !-->
-    <iframe src="/songform" style="border:none;"></iframe>
+    <div class="row">
+        <div class="small-5 small-offset-1 columns">
+            <div class="callout">
 
-<script type="text/javascript" src="/static/js/timer.js"></script>
-<script>
-    {% if "intervals" in session %}
-    document.getElementById("time").textContent = "Resuming your timer...";
-    window.onload = setupTimer( JSON.parse('{{ session["intervals"] | safe }} ') );
-    {% else %}
-    window.onload = setupTimer();               
-    {% endif %}
-</script>
+                <a href="about.html" class="button large"><img src="/static/images/tomato.png" height=15% width=15%>&nbsp;&nbsp;&nbsp;Pomodoro</a>
+
+                <p>A default Pomodoro Timer consists of a 25-minute work period followed by a 5-minute break.</p>
+
+            </div>
+        </div>
+
+        <div class="small-5 columns">
+            <div class="callout">
+
+                <a href="about.html" class="button large"><img src="/static/images/gear.png" height=20% width=20%>&nbsp;&nbsp;&nbsp;Custom</a>
+
+                <p>Pomodoro not fitting your needs? Customize your productivity with a Custom Timer!</p>
+
+            </div>
+        </div>
+        
+        <div class="small-1 columns">
+        &nbsp;
+        </div>
+
+    </div>
+</div>
+
+</div>
+
 
 
 {% endblock content %}

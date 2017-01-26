@@ -5,7 +5,7 @@ body {
     position: relative;
     text-align: center;
     align-self: center;
-    background-color: mediumaquamarine;
+    background-color: rgb(188, 145, 0);
 }
 
 #time {
@@ -25,6 +25,25 @@ ul {
     margin: 0;
     padding: 0;
     list-style: none;
+}
+
+hr {
+    border: 2px solid #4e0000;
+}
+
+a.button {
+    border-radius: 10px;
+    max-width: 50%;
+}
+
+.callout p {
+    padding: 10px 50px;
+}
+
+#timerChoice {
+    background-color: rgba(78, 0, 0, 0.68);
+    border-radius: 30px;
+    padding-bottom: 30px;
 }
 
 .container {

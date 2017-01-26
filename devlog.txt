@@ -62,5 +62,8 @@ alanC -- 2017-1-25 19:49
 debug & link login/register/home to potato.db
 Update readme, designdoc
 
-williamX -- 2017-1-25 9:04
+williamX -- 2017-1-25 9:04pm
 * finished saving timer info
+
+williamX -- 2017-1-26 12:04am
+* started frontend work on landing page
