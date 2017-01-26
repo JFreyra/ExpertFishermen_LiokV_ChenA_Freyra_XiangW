@@ -21,8 +21,8 @@ def login():
         username = request.form.get("username")
         password = request.form.get("password")
 
-        if isValidLogin(username, password):
-            user_id = getUserID(username)
+        if auth.userLogin(username, password):
+            user_id = auth.getUserID(username)
             session["user_id"] = user_id
 
             flash('Login successful!', 'success')
