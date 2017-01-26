@@ -22,16 +22,13 @@
     <div class="top-bar">
         <div class="top-bar-left">
             <ul class="dropdown menu" data-dropdown-menu>
-                <li class="menu-text">Portarto</li>
-                <li class="divider"></li>
+                <li><img src="/static/images/logo.jpg" height=50px width=50px margin=0px padding=0px></li>
+                <!-- Yes, that's the Pied Piper Logo ;) -->
                 <li><a href="/">Home</a></li>
-                <li class="divider"></li>
                 {% if "user_id" not in session %}
                 <li><a href="/login">Login</a></li>
-                <li class="divider"></li>
                 <li><a href="/register">Register</a></li>
                 {% endif %} {% if "user_id" in session %}
-                <li class="divider"></li>
                 <li> <a href="/logout">Logout</a></li>
                 {% endif %}
             </ul>
