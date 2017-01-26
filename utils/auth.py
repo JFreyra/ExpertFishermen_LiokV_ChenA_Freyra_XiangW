@@ -64,6 +64,10 @@ False if the login is unsuccessful
 True if the login is successful 
 '''
 def userLogin(username, password):
+
+    if username == None or password == None:
+        return False
+    
     #connect to database
     db = sqlite3.connect("data/potato.db")
     c = db.cursor()

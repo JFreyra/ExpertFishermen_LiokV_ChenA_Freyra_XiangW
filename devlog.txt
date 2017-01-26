@@ -65,5 +65,8 @@ Update readme, designdoc
 williamX -- 2017-1-25 9:04pm
 * finished saving timer info
 
+VincentL -- 2017-1-25 21:56
+Made a python file called dbsetup.py that contains the schema for each table
+
 williamX -- 2017-1-26 12:04am
 * started frontend work on landing page
