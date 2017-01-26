@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for, request, redirect, session, flash
-from utils import flaskUtils, auth, spotify, timerUtils
+from utils import flaskUtils, auth, spotify, timerUtils, todoUtils
 import json
 
 def redirect_url():
@@ -15,6 +15,9 @@ def index():
 
 @app.route('/timer')
 def timer():
+    if "user_id" in session:
+        taskList = todoUtils.getTasks(session["user_id"])
+        return render_template("timer.html", taskList = taskList)
     return render_template("timer.html")
 
 
@@ -99,12 +102,6 @@ def register():
             return render_template("register.html")
 
 
-@app.route('/todo')
-#Frontend sends AJAX request (POST) to /todo every time todo list changed
-def todo( methods=['POST'] ):
-    return request.args.get('')
-
-
 @app.route('/songform')
 def songform():
     return render_template("songsinit.html")
@@ -123,6 +120,7 @@ def songs():
     return render_template("songs.html", songlist=song_list)
 
 
+#this is p much exclusive used by timer storing data
 @app.route('/sessionPush', methods=['POST'])
 def pushToSession():
     name = request.form.get("name")
@@ -130,6 +128,18 @@ def pushToSession():
     print "%s: %s" % (name, data)
     session[name] = data;
     return "" #idt it matters what i return
+
+
+@app.route('/storeTodo', methods=["POST"])
+def storeTodo():
+    if 'user_id' in session:
+        data = request.form.get("data")
+        print data
+        print data
+        todoUtils.saveTasks( session["user_id"], data )
+    return ""
+    
+
 
 @app.route('/logout')
 def logout():

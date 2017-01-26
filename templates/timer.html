@@ -27,9 +27,6 @@
 
     <div class="block__list block__list_words">
       <ul id="editable">
-        <li>eat<i class="js-remove">x</i></li>
-        <li>sleep<i class="js-remove">x</i></li>
-        <li>repeat<i class="js-remove">x</i></li>
       </ul>
 
       <button id="addUser">Add</button>
@@ -43,7 +40,7 @@
 
 <!-- SONGS !-->
 <iframe src="/songform" style="border:none; border-radius:30px" height=700px width=50%></iframe>
-<script type="text/javascript" src="/static/js/timer.js"></script><script type="text/javascript" src="/static/js/storeTodo.js"></script>
+<script type="text/javascript" src="/static/js/timer.js"></script>
 <script>
   {% if "intervals" in session %}
     {% if "custom" in session and session["custom"] %}
@@ -60,6 +57,21 @@
   {% else %}
   window.onload = setupTimer(); 
   {% endif %}
+  
+  
+  {% if taskList is defined and taskList %}
+  taskList = {{taskList}};
+  var editableList = document.getElementById("editable");
+  for (var i = 0; i < {{taskList}}.length; i++) {
+      var newItem = document.createElement("li");
+      newItem.innerHTML = {{taskList}}[i] + '<i class="js-remove">x</i>';
+      editableList.appendChild(newItem);
+  }
+   
+   {% endif %}
+  
+  
+  
 </script>
 
 

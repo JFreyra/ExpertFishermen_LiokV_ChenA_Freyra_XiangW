@@ -2,7 +2,7 @@ import sqlite3
 
 #add task one at a time
 def addTask( user_id, name, position ):
-    db=sqlite3.connect("data/potato.db")
+    db=sqlite3.connect("data/potato.db", check_same_thread=False)
     c=db.cursor()
     q = "SELECT id FROM task"
     c.execute(q)
@@ -30,7 +30,7 @@ def addTask( user_id, name, position ):
 
 #delete task one at a time
 def deleteTask( user_id, position ):
-    db=sqlite3.connect("data/potato.db")
+    db=sqlite3.connect("data/potato.db", check_same_thread=False)
     c=db.cursor()
     q = "DELETE FROM task WHERE id = " + str(position) + " AND user_id = " + str(user_id)
     c.execute(q)
@@ -45,7 +45,7 @@ def deleteTask( user_id, position ):
     counter = position
     num = 0
     while num < times:
-        q = "UPDATE task SET id = " + str(counter) + ", next_task_id = " + str(counter+1) + " WHERE id = " + str(counter+1)
+        q = "UPDATE task SET id = " + str(counter) + ", 3\" WHERE id = " + str(counter+1)
         c.execute(q)
         counter+=1
         num+=1
@@ -55,13 +55,12 @@ def deleteTask( user_id, position ):
 
 #add and delete multiple tasks all at once
 def saveTasks( user_id, listTasks ):
-    db=sqlite3.connect("data/potato.db")
+    db=sqlite3.connect("data/potato.db", check_same_thread=False)
     c=db.cursor()
     q = "DELETE FROM task WHERE user_id = " + str(user_id)
     c.execute(q)
-    counter = 0
     for task in listTasks:
-        q = "INSERT INTO task VALUES( " + str(counter) + ", " + str(user_id) + ", \"" + task + "\", " + str(counter+1) + ")"
+        q = "INSERT INTO task VALUES(" + str(user_id) + "," + task + "\", " + str(counter+1) + ")"
         c.execute(q)
         counter+=1
     db.commit()
@@ -70,7 +69,7 @@ def saveTasks( user_id, listTasks ):
 
 #returns a list of tasks
 def getTasks( user_id ):
-    db=sqlite3.connect("data/potato.db")
+    db=sqlite3.connect("data/potato.db", check_same_thread=False)
     c=db.cursor()
     q = "SELECT name FROM task WHERE user_id = " + str(user_id)
     c.execute(q)
