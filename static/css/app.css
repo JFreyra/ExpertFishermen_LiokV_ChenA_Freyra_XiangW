@@ -5,7 +5,7 @@ body {
     position: relative;
     text-align: center;
     align-self: center;
-    background-color: rgb(188, 145, 0);
+    background-color: rgb(206, 159, 0);
 }
 
 #time {
@@ -51,8 +51,10 @@ a.button {
     text-align: center;
     margin: auto;
     position: relative;
-    background-color: #B08382;
-    color: #34252f;
+    background: linear-gradient(27deg, #ff6767 5px, transparent 5px) 0 5px, linear-gradient(207deg, #ff8b8b 5px, transparent 5px) 10px 0px, linear-gradient(27deg, #ff6e6e 5px, transparent 5px) 0px 10px, linear-gradient(207deg, #ff8b8b 5px, transparent 5px) 10px 5px, linear-gradient(90deg, #ff7f7f 10px, transparent 10px), linear-gradient(#fd8989 25%, #ff6767 25%, #ff5656 50%, transparent 50%, transparent 75%, #ff8282 75%, #ff6565);
+    background-color: #ff5d5d;
+    background-size: 20px 20px;
+    color: rgba(0, 0, 0, 0.76);
     border-radius: 15px;
     border: 5px outset #6a6a6a;
 }
@@ -149,7 +151,7 @@ img {
 
 .block__list li {
     cursor: move;
-/*    border-style: */
+    /*    border-style: */
     background: white;
     border-radius: 15px;
     border: 3px outset #6a6a6a;
@@ -191,8 +193,7 @@ img {
     text-transform: uppercase;
 }
 
-#editable {
-}
+#editable {}
 
 #editable li {
     /*position: relative;*/
@@ -226,7 +227,7 @@ img {
     opacity: 1;
     transition: opacity .1s ease;
     cursor: pointer;
-    background: #5F9EDF;
+    background: #005dbc;
     margin-top: 20px;
     padding: 10px 30px;
     font-size: 20px;

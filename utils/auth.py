@@ -23,7 +23,6 @@ def isValidRegister(username, password, confirm):
     c.execute(q)
     user_list = c.fetchall()
 
-    print "Ddxdxdxd"
     print user_list
     #determine if username is already registered
     for user in user_list:
@@ -31,8 +30,6 @@ def isValidRegister(username, password, confirm):
         if (username in user):
             db.close()
             return False
-
-    print "lmao"
     
     return True
 
