@@ -38,7 +38,7 @@ window.onbeforeunload = function () { //when closing out
 var setupTimer = function (input_intervals) {
     var curInterval_index = -1;
     if (input_intervals !== undefined) {
-        console.log(input_intervals);
+//        console.log(input_intervals);
         intervals = input_intervals;
         
         for (var i = 0; i < intervals.length; i++) {
@@ -60,7 +60,9 @@ var setupTimer = function (input_intervals) {
         intervals.push(rest);
         curInterval_index = 0;
     }
-
+    
+    document.getElementById("intervalName").textContent = intervals[curInterval_index].name;
+    
     display = document.querySelector('#time');
     setTimeout( function() {
         startTimer(curInterval_index, display);
@@ -76,7 +78,7 @@ var resetTimer = function () {
 
 
 var alertMessage = function (curInterval_index) {
-    console.log("alertmsg index: " + curInterval_index);
+//    console.log("alertmsg index: " + curInterval_index);
     var name = intervals[curInterval_index].name;
     switch (name) {
     case "work":
@@ -104,7 +106,8 @@ var startTimer = function (curInterval_index, display) {
                 curInterval_index = 0;
             }
             alertMessage(curInterval_index);
-            console.log(intervals[curInterval_index]);
+            document.getElementById("intervalName").textContent = intervals[curInterval_index].name;
+//            console.log(intervals[curInterval_index]);
         }
 
         minutes = parseInt(curInterval_time / 60, 10);

@@ -217,6 +217,7 @@ img {
 
 #editable li:hover i {
     opacity: 1;
+    font-size: 1.2em;
 }
 
 #filter {
@@ -226,7 +227,8 @@ img {
 
 li+li { border-left: 0.1em solid rgba(0, 0, 0, 0.7) }
 li:hover {
-    opacity: 0.6;
+    background-color: #bababa;
+    color: rgba(100, 0, 0, 0.9);
 }
 
 #filter button {
