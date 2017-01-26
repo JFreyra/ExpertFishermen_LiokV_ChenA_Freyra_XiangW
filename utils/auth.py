@@ -105,6 +105,7 @@ def special(user):
 '''
 getUserId returns the numerical id of a username in the database
 '''
+
 def getUserId(username):
     # connect to database
     db = sqlite3.connect("data/potato.db")

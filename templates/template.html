@@ -25,6 +25,9 @@
                 {% if "user_id" not in session %}
                 <li><a href="/login">Login</a></li>
                 {% endif %}
+		{% if "user_id" in session %}
+		<li> <a href="/logout">Logout</a></li>
+		{% endif %}
             </ul>
         </div>
     </div>

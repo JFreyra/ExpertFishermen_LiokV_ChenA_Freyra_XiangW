@@ -24,18 +24,19 @@ def login():
     else: #assert method is POST
         username = request.form.get("username")
         password = request.form.get("password")
-
+        print username
+        print password
         if auth.userLogin(username, password):
-            user_id = auth.getUserID(username)
+            user_id = auth.getUserId(username)
             session["user_id"] = user_id
 
             flash('Login successful!', 'success')
-
+            print "login successful"
             return redirect('/')
         
         else:
             flash("Login unsuccessful! Please create an account if you haven't already!", 'error')
-
+            print "login unsuccessful"
             return render_template("login.html")
 
     
@@ -45,18 +46,14 @@ def register():
         return render_template("register.html")
 
     else: #assert method is POST
-        username = request.form.get("username")
-        password = request.form.get("password")
-        confirm = request.form.get("confirm")
-        print username
-        print password
-        print confirm
+        username = request.form["username"]
+        password = request.form["password"]
+        confirm = request.form["confirm"]
 
         if auth.isValidRegister(username, password, confirm):
             auth.addUser(username, password)
-            print "user added"
             
-            user_id = auth.getUserID(username)
+            user_id = auth.getUserId(username)
             session["user_id"] = user_id
 
             flash('Registration successful!', 'success')
@@ -65,7 +62,7 @@ def register():
         
         else:
             flash('Registration unsuccessful! Username probably already exists!', 'error')
-            print "something went wrong"
+
             return render_template("register.html")
 
 
